@@ -2,9 +2,15 @@ import { NextRequest, NextResponse } from 'next/server'
 import db from '@/lib/db'
 import { verifyAuth } from '@/lib/auth'
 
+interface RouteParams {
+  params: {
+    id: string
+  }
+}
+
 export async function PATCH(
   request: NextRequest,
-  context: { params: { id: string } }
+  { params }: RouteParams
 ) {
   try {
     const token = request.headers.get('authorization')?.split(' ')[1]
@@ -23,7 +29,7 @@ export async function PATCH(
       )
     }
 
-    const { id } = context.params
+    const { id } = params
     const data = await request.json()
 
     const result = await db.query(
