@@ -2,15 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import db from '@/lib/db'
 import { verifyAuth } from '@/lib/auth'
 
-interface RouteParams {
-  params: {
-    id: string
-  }
-}
-
 export async function PATCH(
   request: NextRequest,
-  { params }: RouteParams
+  { params }: { params: { id: string } }
 ) {
   try {
     const token = request.headers.get('authorization')?.split(' ')[1]
