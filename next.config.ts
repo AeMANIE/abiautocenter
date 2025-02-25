@@ -1,7 +1,14 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'standalone',
+  images: {
+    domains: ['abiautocenter.de'], // Ihre tatsächliche Domain
+  },
+  eslint: {
+    // Während der Entwicklung auf false setzen, für Production auf true
+    ignoreDuringBuilds: true,
+  },
+  // Ihre anderen Konfigurationen...
+}
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
-
-export default nextConfig;
+module.exports = nextConfig

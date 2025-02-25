@@ -1,0 +1,5 @@
+Gold ffd700
+Dunkel blau 0d1119
+hell blau 1c69d4
+hell grau ebeeef
+dunkel grau 898d92
